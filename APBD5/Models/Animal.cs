@@ -6,7 +6,7 @@ public class Animal
     public string Imie { get; set; }
     public AnimalType AnimalType { get; set; }
     public double Weight { get; set; }
-    public string FurColor { get; set; }
+    public FurColor FurColor { get; set; }
 }
 
 
@@ -17,4 +17,13 @@ public enum AnimalType
     Tiger,
     Lion,
     Shark
+}
+
+public enum FurColor
+{
+    Ginger,
+    Black,
+    White,
+    Grey,
+    Brown
 }

@@ -1,0 +1,150 @@
+﻿using APBD5.Models;
+
+namespace APBD5.Repositories;
+
+public class MockDbAnimals : IMockDbAnimals
+{
+    private ICollection<Animal> _animals;
+
+    public MockDbAnimals()
+    {
+        _animals = new List<Animal>()
+        {
+            new Animal()
+            {
+                ID = 1,
+                Imie = "Puszek",
+                AnimalType = AnimalType.Cat,
+                Weight = 10.5,
+                FurColor = FurColor.Black,
+            },
+            new Animal()
+            {
+                ID = 2,
+                Imie = "Toffik",
+                AnimalType = AnimalType.Dog,
+                Weight = 15.5,
+                FurColor = FurColor.Brown,
+            },
+            new Animal()
+            {
+                ID = 3,
+                Imie = "Nugat",
+                AnimalType = AnimalType.Shark,
+                Weight = 150.23,
+                FurColor = FurColor.Grey,
+            },
+            new Animal()
+            {
+                ID = 4,
+                Imie = "Frytka",
+                AnimalType = AnimalType.Lion,
+                Weight = 120.5,
+                FurColor = FurColor.Ginger,
+            },
+            new Animal()
+            {
+                ID = 5,
+                Imie = "Mruczek",
+                AnimalType = AnimalType.Cat,
+                Weight = 5.5,
+                FurColor = FurColor.White,
+            },
+            new Animal()
+            {
+                ID = 6,
+                Imie = "Reksio",
+                AnimalType = AnimalType.Dog,
+                Weight = 20.0,
+                FurColor = FurColor.Black,
+            },
+            new Animal()
+            {
+                ID = 7,
+                Imie = "Goldie",
+                AnimalType = AnimalType.Dog,
+                Weight = 25.543,
+                FurColor = FurColor.Black,
+            },
+            new Animal()
+            {
+                ID = 8,
+                Imie = "Shadow",
+                AnimalType = AnimalType.Cat,
+                Weight = 8.0,
+                FurColor = FurColor.Grey,
+            },
+            new Animal()
+            {
+                ID = 9,
+                Imie = "Bella",
+                AnimalType = AnimalType.Dog,
+                Weight = 18.0,
+                FurColor = FurColor.Ginger,
+            },
+            new Animal()
+            {
+                ID = 10,
+                Imie = "Zebra",
+                AnimalType = AnimalType.Lion,
+                Weight = 90.0,
+                FurColor = FurColor.Brown,
+            },
+            new Animal()
+            {
+                ID = 11,
+                Imie = "Simba",
+                AnimalType = AnimalType.Lion,
+                Weight = 150.0,
+                FurColor = FurColor.Ginger,
+            },
+            new Animal()
+            {
+                ID = 12,
+                Imie = "Lucky",
+                AnimalType = AnimalType.Cat,
+                Weight = 2.5,
+                FurColor = FurColor.White,
+            },
+            new Animal()
+            {
+                ID = 13,
+                Imie = "Patch",
+                AnimalType = AnimalType.Dog,
+                Weight = 22.5,
+                FurColor = FurColor.White,
+            },
+            new Animal()
+            {
+                ID = 14,
+                Imie = "Sonic",
+                AnimalType = AnimalType.Shark,
+                Weight = 1.0,
+                FurColor = FurColor.Grey,
+            },
+            new Animal()
+            {
+                ID = 15,
+                Imie = "Flash",
+                AnimalType = AnimalType.Tiger,
+                Weight = 30.0,
+                FurColor = FurColor.Ginger,
+            }
+        };
+    }
+
+    public ICollection<Animal> GetAll()
+    {
+        return _animals;
+    }
+
+    public Animal? Get(int id)
+    {
+        return _animals.FirstOrDefault(animal => animal.ID == id);
+    }
+
+    public void Add(Animal animal)
+    {
+        _animals.Add(animal);
+    }
+}
