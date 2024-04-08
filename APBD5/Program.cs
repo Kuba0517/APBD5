@@ -8,6 +8,7 @@ builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 builder.Services.AddControllers();
 builder.Services.AddSingleton<IMockDbAnimals, MockDbAnimals>();
+builder.Services.AddSingleton<IMockDbVisits, MockDbVisits>();
 
 var app = builder.Build();
 
