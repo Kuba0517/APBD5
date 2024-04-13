@@ -8,26 +8,33 @@ namespace APBD5.Controllers;
 [Route("/visits")]
 public class VisitsController : ControllerBase
 {
-    private IMockDbVisits _mockDb;
+    private IMockDbVisits _mockDbVisits;
+    private IMockDbAnimals _mockDbAnimals;
 
-    public VisitsController(IMockDbVisits mockDb)
+    public VisitsController(IMockDbVisits mockDbVisits, IMockDbAnimals mockDbAnimals)
     {
-        _mockDb = mockDb;
+        _mockDbVisits = mockDbVisits;
+        _mockDbAnimals = mockDbAnimals;
     }
 
     [HttpGet]
     public IActionResult Get()
     {
-        return Ok(_mockDb.Get());
+        return Ok(_mockDbVisits.Get());
     }
 
     [HttpGet("{id:int}")]
     public IActionResult GetVisitList(int id)
     {
-        ICollection<Visit> visits = _mockDb.GetVisitList(id);
+        ICollection<Visit> visits = _mockDbVisits.GetVisitList(id);
         if (visits.Count == 0) return NotFound();
         return Ok(visits);
     }
-    
-    
+
+    [HttpPost]
+    public IActionResult Add(Visit visit)
+    {
+        _mockDbVisits.Add(visit);
+        return Ok();
+    }
 }
